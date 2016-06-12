@@ -13,7 +13,7 @@ Potential Concepts to add to this project:
 *Conditional Operator  
 *About Interfaces  
 *Operator Overloading  
-8About Namespaces  
+*About Namespaces  
 *About Regex  
 *Try-catch-throw  
 
