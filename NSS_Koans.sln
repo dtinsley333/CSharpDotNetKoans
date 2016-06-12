@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2553E5FB-D66D-4143-A118-B487D3099505}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0FDA5F18-85AC-4250-A082-65D19DE4C734}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NSS_Koans", "src\NSS_Koans\NSS_Koans.xproj", "{1A45077A-34BA-4B9D-9F6C-A92ECE9CAB35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSS_Koans_Tester", "NSS_Koans_Tester\NSS_Koans_Tester.csproj", "{8FC5C279-092A-4348-BC41-8D456202F28E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A45077A-34BA-4B9D-9F6C-A92ECE9CAB35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A45077A-34BA-4B9D-9F6C-A92ECE9CAB35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A45077A-34BA-4B9D-9F6C-A92ECE9CAB35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A45077A-34BA-4B9D-9F6C-A92ECE9CAB35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FC5C279-092A-4348-BC41-8D456202F28E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FC5C279-092A-4348-BC41-8D456202F28E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FC5C279-092A-4348-BC41-8D456202F28E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FC5C279-092A-4348-BC41-8D456202F28E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1A45077A-34BA-4B9D-9F6C-A92ECE9CAB35} = {2553E5FB-D66D-4143-A118-B487D3099505}
+	EndGlobalSection
+EndGlobal
