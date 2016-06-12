@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace NSS_Koans_Tester
 {
-    
+
         public class Koan
         {
+            public bool FillIn;
             public static object FILL_ME_IN = new Object();
         }
 

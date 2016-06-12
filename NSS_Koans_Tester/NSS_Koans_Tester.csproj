@@ -48,14 +48,25 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
     <Compile Include="Koan.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="AboutArrays.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AboutArrayAssignments.cs" />
+    <Compile Include="AboutAsserts.cs" />
+    <Compile Include="AboutControlStatements.cs" />
+    <Compile Include="AboutMethods.cs" />
+    <Compile Include="AboutGenericContainers.cs" />
+    <Compile Include="AboutInheritance.cs" />
+    <Compile Include="AboutLambdas.cs" />
+    <Compile Include="AboutNull.cs" />
+    <Compile Include="AboutStrings.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
