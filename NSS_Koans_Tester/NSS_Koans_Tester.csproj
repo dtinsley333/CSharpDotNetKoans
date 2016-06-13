@@ -67,6 +67,7 @@
     <Compile Include="AboutLambdas.cs" />
     <Compile Include="AboutNull.cs" />
     <Compile Include="AboutStrings.cs" />
+    <Compile Include="AboutObjects.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
