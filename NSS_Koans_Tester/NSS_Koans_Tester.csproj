@@ -56,18 +56,20 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Koan.cs" />
-    <Compile Include="AboutArrays.cs" />
+    <Compile Include="4_Arrays.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AboutArrayAssignments.cs" />
-    <Compile Include="AboutAsserts.cs" />
-    <Compile Include="AboutControlStatements.cs" />
-    <Compile Include="AboutMethods.cs" />
-    <Compile Include="AboutGenericContainers.cs" />
-    <Compile Include="AboutInheritance.cs" />
-    <Compile Include="AboutLambdas.cs" />
-    <Compile Include="AboutNull.cs" />
-    <Compile Include="AboutStrings.cs" />
-    <Compile Include="AboutObjects.cs" />
+    <Compile Include="1_Asserts.cs" />
+    <Compile Include="9_ControlStatements.cs" />
+    <Compile Include="11_Methods.cs" />
+    <Compile Include="8_StackAndQueue.cs" />
+    <Compile Include="12_inheritance.cs" />
+    <Compile Include="13_Lambdas.cs" />
+    <Compile Include="5_Null.cs" />
+    <Compile Include="3_Strings.cs" />
+    <Compile Include="10_Objects.cs" />
+    <Compile Include="6_Lists.cs" />
+    <Compile Include="7_Dictionaries.cs" />
+    <Compile Include="2_Types.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

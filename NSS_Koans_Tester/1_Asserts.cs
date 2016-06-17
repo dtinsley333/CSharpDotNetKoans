@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace NSS_Koans_Tester
 {
     [TestClass]
-    public class AboutAsserts : Koan
+    public class Asserts : Koan
     {
         [TestMethod]
         public void AboutAssertsAssertTruth()

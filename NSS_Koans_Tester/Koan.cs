@@ -10,6 +10,8 @@ namespace NSS_Koans_Tester
         public class Koan
         {
             public bool FillIn;
+            public int Fill_In_Number;
+            public List<int> Fill_In;
             public static object FILL_ME_IN = new Object();
         }
 

@@ -19,7 +19,7 @@ namespace NSS_Koans_Tester
         public string Color { get; set; }
         public bool HasSticks { get; set; }
 
-        public DrumSet ()
+        public DrumSet ()//This is a constructor
         {
             NumberOfDrums = 6;
             Color = "Red";
@@ -116,6 +116,4 @@ namespace NSS_Koans_Tester
             Assert.AreEqual(FILL_ME_IN, rockStar.Cost);
         }
     }
-
-    
 }

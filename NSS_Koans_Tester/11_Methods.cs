@@ -27,7 +27,7 @@ namespace NSS_Koans_Tester
     }
 
     [TestClass]
-    public class AboutMethods : Koan
+    public class Methods : Koan
     {
         [TestMethod]
         public void AboutMethodsExtensionMethodsShowUpInTheCurrentClass()

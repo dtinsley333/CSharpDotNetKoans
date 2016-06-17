@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace NSS_Koans_Tester
 {
     [TestClass]
-    public class AboutStrings : Koan
+    public class Strings : Koan
     {
         //Note: This is one of the longest katas and, perhaps, one
         //of the most important. String behavior in .NET is not
@@ -305,6 +305,14 @@ broken line";
             //A full treatment of regular expressions is beyond the scope
             //of this tutorial. The book "Mastering Regular Expressions"
             //is highly recommended to be on your bookshelf
+        }
+
+        [TestMethod]
+        public void StringFunctions()
+        {
+            string test = "This Is A Test!";
+            string testLower = test.ToLower();
+            Assert.AreEqual(FILL_ME_IN, testLower);
         }
 
 
