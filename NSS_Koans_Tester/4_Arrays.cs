@@ -109,5 +109,91 @@ namespace NSS_Koans_Tester
             Assert.AreEqual(FILL_ME_IN, list.ToArray());
         }
 
+        [TestMethod]
+        public void ArrayListSizeIsDynamic()
+        {
+            //When you worked with Array, the fact that Array is fixed size was glossed over.
+            //The size of an array cannot be changed after you allocate it. To get around that
+            //you need a class from the System.Collections namespace such as ArrayList
+            ArrayList list = new ArrayList();
+            Assert.AreEqual(FILL_ME_IN, list.Count);
+
+            list.Add(42);
+            Assert.AreEqual(FILL_ME_IN, list.Count);
+        }
+
+        [TestMethod]
+        public void ArrayListHoldsObjects()
+        {
+            ArrayList list = new ArrayList();
+            System.Reflection.MethodInfo method = list.GetType().GetMethod("Add");
+            Assert.AreEqual(typeof(FillMeIn), method.GetParameters()[0].ParameterType);
+        }
+
+        [TestMethod]
+        public void MustCastWhenRetrieving()
+        {
+            //There are a few problems with ArrayList holding object references. The first 
+            //is that you must cast the items you fetch back to the original type.
+            ArrayList list = new ArrayList();
+            list.Add(42);
+            int x = 0;
+            //x = (int)list[0];
+            Assert.AreEqual(x, 42);
+        }
+
+        [TestMethod]
+        public void ArrayListIsNotStronglyTyped()
+        {
+            //Having to cast everywhere is tedious. But there is also another issue lurking
+            //ArrayList can hold more than one type. 
+            ArrayList list = new ArrayList();
+            list.Add(42);
+            list.Add("fourty two");
+            Assert.AreEqual(FILL_ME_IN, list[0]);
+            Assert.AreEqual(FILL_ME_IN, list[1]);
+
+            //While there are a few cases where it could be nice, instead what it means is that 
+            //anytime your code works with an array list you have to check that the element is 
+            //of the type you expect.
+        }
+
+        [TestMethod]
+        public void AboutArrayAssignmentsImplicitAssignments()
+        {
+            //Even though we don't specify types explicitly, the compiler
+            //will pick one for us
+            var name = "John";
+            Assert.AreEqual(typeof(FillMeIn), name.GetType());
+
+            //but only if it can. So this doesn't work
+            //var array = null;
+
+            //It also knows the type, so once the above is in place, this doesn't work:
+            //name = 42;
+        }
+
+        [TestMethod]
+        public void AboutArrayAssignmentsImplicitArrayAssignmentWithSameTypes()
+        {
+            //Even though we don't specify types explicitly, the compiler
+            //will pick one for us
+            var names = new[] { "John", "Smith" };
+            Assert.AreEqual(typeof(FillMeIn), names.GetType());
+
+            //but only if it can. So this doesn't work
+            //var array = new[] { "John", 1 };
+        }
+
+        [TestMethod]
+        public void AboutArrayAssignmentsMultipleAssignmentsOnSingleLine()
+        {
+            //You can do multiple assignments on one line, but you 
+            //still have to be explicit
+            string firstName = "John", lastName = "Smith";
+            Assert.AreEqual(FILL_ME_IN, firstName);
+            Assert.AreEqual(FILL_ME_IN, lastName);
+        }
+
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace NSS_Koans_Tester
 {
     [TestClass]
-    public class AboutControlStatements : Koan
+    public class ControlStatements : Koan
     {
         [TestMethod]
         public void AboutControlStatementsIfThenElseStatementsWithBrackets()

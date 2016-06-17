@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace NSS_Koans_Tester
 {
     [TestClass]
-    public class AboutInheritance : Koan
+    public class Inheritance : Koan
     {
         public class Dog
         {

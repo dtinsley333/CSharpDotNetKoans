@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace NSS_Koans_Tester
 {
     [TestClass]
-    public class AboutNull : Koan
+    public class Null : Koan
     {
         [TestMethod]
         public void AboutNullNullIsNotAnObject()
