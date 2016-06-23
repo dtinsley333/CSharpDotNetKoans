@@ -51,7 +51,7 @@ namespace NSS_Koans_Tester
         public void AboutObjectsCanCreateAPiano()
         {
             Piano steinway = new Piano();
-            Assert.IsNotNull(FILL_ME_IN);
+            Assert.IsNotNull(null); //Change null to make this test pass
         }
 
         [TestMethod]
