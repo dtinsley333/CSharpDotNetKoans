@@ -51,7 +51,7 @@ namespace NSS_Koans_Tester
                 }
             }
 
-            Assert.AreEqual(9, theLatestInteger);
+            Assert.AreEqual(FILL_ME_IN, theLatestInteger);
         }
 
         [TestMethod]

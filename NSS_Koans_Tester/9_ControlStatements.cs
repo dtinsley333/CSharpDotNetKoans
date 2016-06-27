@@ -114,11 +114,12 @@ namespace NSS_Koans_Tester
             if (myType is Koan)
                 isKoan = true;
 
-            //if (myType is AboutControlStatements)
-            //    isAboutControlStatements = true;
 
-            //if (myType is AboutMethods)
-            //    isAboutMethods = true;
+            if (myType is ControlStatements)
+                isAboutControlStatements = true;
+
+            if (myType is Methods)
+                isAboutMethods = true;
 
             Assert.AreEqual(FILL_ME_IN, isKoan);
             Assert.AreEqual(FILL_ME_IN, isAboutControlStatements);

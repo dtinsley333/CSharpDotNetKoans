@@ -16,7 +16,7 @@ namespace NSS_Koans_Tester
             short s = 5;
             object os = s;
             Assert.AreEqual(s.GetType(), os.GetType());
-            Assert.AreEqual(s, os);
+            Assert.AreEqual(FILL_ME_IN, os);
 
             //While this it is true that everything is an object and all the above passes. Not everything is quite as it seems.
             //Under the covers .Net allocates memory for all value type objects (int, double, bool,...) on the stack. This is 
