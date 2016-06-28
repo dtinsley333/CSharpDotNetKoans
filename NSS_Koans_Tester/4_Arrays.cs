@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-//using NSS_Koans;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
@@ -21,37 +20,36 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        [ExpectedException(typeof(FillMeIn))]
         public void AboutArraysArrayLiterals()
         {
-            //You don't have to specify a type if the arguments can be inferred
+            //You don't have to specify a type if the arguments can be inferred, but it's always better to be explicit when you can be
             var array = new[] { 42 };
+            
             Assert.AreEqual(typeof(int[]), array.GetType());
-            Assert.AreEqual(new int[] { 42 }, array);
+            CollectionAssert.AreEquivalent(new int[] { 42 }, array);
         }
 
         [TestMethod]
         public void AboutArraysAreArrays0or1Based()
         {
             var array = new[] { 42 };
-            Assert.AreEqual(42, array[((int)FILL_ME_IN)]);
+            Assert.AreEqual(Fill_In_Number, array[0]);
             //This is important because...
-            Assert.IsTrue(array.IsFixedSize);
-            //This is because the array is fixed at length 1. You could write a function
+            //Assert.IsTrue(array.IsFixedSize);
         }
 
         [TestMethod]
         public void AboutArraysLists()
         {
-            //which created a new array bigger than the last, copied the elements over, and
+            //When you want to add an item to an array, you could write a function
+            //to create a new array bigger than the last, copied the elements over, and
             //returned the new array. Or you could do this:
             var array = new[] { 42 };
             List<int> dynamicArray = new List<int>();
             dynamicArray.Add(42);
-            Assert.AreEqual(array, dynamicArray.ToArray());
-
+            CollectionAssert.AreEquivalent(array, dynamicArray.ToArray());
             dynamicArray.Add(13);
-            Assert.AreEqual((new int[] { 42, (int)FILL_ME_IN }), dynamicArray.ToArray());
+            CollectionAssert.AreEquivalent((new int[] { 42, Fill_In_Number }), dynamicArray.ToArray());
         }
 
         [TestMethod]
@@ -70,8 +68,8 @@ namespace NSS_Koans_Tester
         {
             var array = new[] { "peanut", "butter", "and", "jelly" };
 
-            Assert.AreEqual(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Take(2).ToArray());
-            Assert.AreEqual(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Skip(1).Take(2).ToArray());
+            CollectionAssert.AreEquivalent(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Take(2).ToArray());
+            CollectionAssert.AreEquivalent(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Skip(1).Take(2).ToArray());
         }
 
         [TestMethod]
