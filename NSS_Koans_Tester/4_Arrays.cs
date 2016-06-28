@@ -77,11 +77,14 @@ namespace NSS_Koans_Tester
         {
             var array = new[] { 1, 2 };
             Stack stack = new Stack(array);
-            stack.Push("last");
-            Assert.AreEqual(FILL_ME_IN, stack.ToArray());
+            stack.Push(3);
+            //what numbers are in the stack?
+            CollectionAssert.AreEquivalent(Fill_In, stack.ToArray());
+            //what order are the numbers in?
+            CollectionAssert.AreEqual(Fill_In, stack.ToArray());
             var poppedValue = stack.Pop();
             Assert.AreEqual(FILL_ME_IN, poppedValue);
-            Assert.AreEqual(FILL_ME_IN, stack.ToArray());
+            CollectionAssert.AreEqual(Fill_In, stack.ToArray());
         }
 
         [TestMethod]
