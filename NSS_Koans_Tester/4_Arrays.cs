@@ -98,22 +98,22 @@ namespace NSS_Koans_Tester
             var list = new LinkedList<string>(array);
 
             list.AddFirst("Say");
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            CollectionAssert.AreEqual(new string[] { "Say", "Hello", "World" }, list.ToArray());
 
             list.RemoveLast();
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            CollectionAssert.AreEqual(Fill_In, list.ToArray());
 
             list.RemoveFirst();
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            CollectionAssert.AreEqual(Fill_In, list.ToArray());
 
             list.AddAfter(list.Find("Hello"), "World");
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            CollectionAssert.AreEqual(Fill_In, list.ToArray());
         }
 
         [TestMethod]
-        public void ArrayListSizeIsDynamic()
+        public void AboutArraysArrayListSizeIsDynamic()
         {
-            //When you worked with Array, the fact that Array is fixed size was glossed over.
+            //When you worked with Array, the fact that Array is fixed size was mentioned.
             //The size of an array cannot be changed after you allocate it. To get around that
             //you need a class from the System.Collections namespace such as ArrayList
             ArrayList list = new ArrayList();
@@ -124,15 +124,17 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void ArrayListHoldsObjects()
+        public void AboutArraysArrayListHoldsObjects()
         {
             ArrayList list = new ArrayList();
+            list.Add("one"); //We added a string
+            list.Add(2); //We can also add an int
             System.Reflection.MethodInfo method = list.GetType().GetMethod("Add");
             Assert.AreEqual(typeof(FillMeIn), method.GetParameters()[0].ParameterType);
         }
 
         [TestMethod]
-        public void MustCastWhenRetrieving()
+        public void AboutArraysMustCastWhenRetrieving()
         {
             //There are a few problems with ArrayList holding object references. The first 
             //is that you must cast the items you fetch back to the original type.
@@ -144,7 +146,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void ArrayListIsNotStronglyTyped()
+        public void AboutArraysArrayListIsNotStronglyTyped()
         {
             //Having to cast everywhere is tedious. But there is also another issue lurking
             //ArrayList can hold more than one type. 
