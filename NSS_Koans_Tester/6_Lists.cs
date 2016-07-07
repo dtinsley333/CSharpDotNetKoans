@@ -9,14 +9,16 @@ namespace NSS_Koans_Tester
     public class Lists : Koan
     {
         [TestMethod]
-        public void ListsAreTyped()
+        public void AboutListsListsAreTyped()
         {
             List<int> integers = new List<int>();
-            Assert.AreEqual(integers, new List<FillMeIn>());
+            Assert.AreEqual("The test below is going to pass as is",
+                "but go ahead an fix it so it makes sense");//then comment this test out =-)
+            CollectionAssert.AreEqual(integers, new List<FillMeIn>());
         }
 
         [TestMethod]
-        public void OneWayToCreateAList()
+        public void AboutListsOneWayToCreateAList()
         {
             List<char> characterList = new List<char>() { 'a', 'b', 'c' };
             Assert.AreEqual(FILL_ME_IN, characterList[0]);
@@ -26,7 +28,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void AnotherWayToCreateAList()
+        public void AboutListsAnotherWayToCreateAList()
         {
             List<char> characterList = new List<char>();
             characterList.Add('a');
@@ -39,7 +41,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void CanLoopThroughAListWithForEach()
+        public void AboutListsCanLoopThroughAListWithForEach()
         {
             List<int> integerList = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             int theLatestInteger = 33;
@@ -55,14 +57,14 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void CanGetTheNumberOfItemsInAList()
+        public void AboutListsCanGetTheNumberOfItemsInAList()
         {
             List<string> stringList = new List<string>() { "apple", "banana", "strawberry", "peach", "watermelon" };
             Assert.AreEqual(FILL_ME_IN, stringList.Count);
         }
 
         [TestMethod]
-        public void CanRemoveAllItemsInAList()
+        public void AboutListsCanRemoveAllItemsInAList()
         {
             List<string> stringList = new List<string>() { "apple", "banana", "strawberry", "peach", "watermelon" };
             Assert.AreEqual(FILL_ME_IN, stringList.Count);
@@ -72,7 +74,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void MyTestMethod()
+        public void AboutListsCanCheckToSeeWhatAListContains()
         {
             List<string> stringList = new List<string>() { "apple", "banana", "strawberry", "peach", "watermelon" };
             bool stringListItems = stringList.Contains("banana");
@@ -83,7 +85,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void ListsCanBeConvertedToStringsWithStringBuilder()
+        public void AboutListsListsCanBeConvertedToStringsWithStringBuilder()
         {
             List<string> nss = new List<string>() { "nashville", "software", "school"};
             StringBuilder builder = new StringBuilder();
@@ -98,7 +100,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void ListsCanBeConvertedToStringsWithJoin()
+        public void AboutListsListsCanBeConvertedToStringsWithJoin()
         {
             List<string> dogs = new List<string>();
             dogs.Add("Aigi");
@@ -107,15 +109,13 @@ namespace NSS_Koans_Tester
             dogs.Add("Finnish Spitz"); 
             dogs.Add("Briard"); 
 
-            string dogCsv = string.Join(",", dogs.ToArray());
-            Assert.AreEqual(FILL_ME_IN, dogCsv);
+            string dogString = string.Join(", ", dogs.ToArray());
+            Assert.AreEqual(FILL_ME_IN, dogString);
         }
 
         [TestMethod]
-        public void ABetterDynamicSizeContainer()
+        public void AboutListsABetterDynamicSizeContainer()
         {
-            //ArrayList is a .Net 1.0 container. With .Net 2.0 generics were introduced and with it a new set of collections in
-            //System.Collections.Generic The array like container is List<T>. List<T> (read "list of T") is a generic class. 
             //The "T" in the definition of List<T> is the type argument. You cannot declare an instace of List<T> without also
             //supplying a type in place of T.
             var list = new List<int>();
@@ -127,15 +127,15 @@ namespace NSS_Koans_Tester
             //Now just like int[], you can have a type safe dynamic sized container
             //list.Add("fourty two"); //<--Unlike ArrayList this is illegal.
 
-            //List<T> also solves the boxing/unboxing issues of ArrayList. Unfortunately, you'll have to take Microsoft's word for it
-            //as I can't find a way to prove it without some ugly MSIL beyond the scope of these Koans.
+            //List<T> also solves the boxing/unboxing issues of ArrayList. Check out the Arrays test class around line 127 if you've already forgotten about arraylists.
         }
         public class Widget
         {
+            //yup, we just totally created our own type in the middle of this test class ;-)
         }
 
         [TestMethod]
-        public void ListWorksWithAnyType()
+        public void AboutListsListWorksWithAnyType()
         {
             //Just as with Array, list will work with any type
             List<Widget> list = new List<Widget>();
@@ -144,7 +144,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void InitializingWithValues()
+        public void AboutListsInitializingWithValues()
         {
             //Like array you can create a list with an initial set of values easily
             var list = new List<int> { 1, 2, 3 };
@@ -152,7 +152,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void AddMultipleItems()
+        public void AboutListsAddMultipleItems()
         {
             //You can add multiple items to a list at once
             List<int> list = new List<int>();
@@ -161,44 +161,43 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void RandomAccess()
+        public void AboutListsRandomAccess()
         {
             //Just as with array, you can use the subscript notation to access any element in a list.
             List<int> list = new List<int> { 5, 6, 7 };
             Assert.AreEqual(FILL_ME_IN, list[2]);
         }
 
-        //Do we need to rewrite this test?
-
-        //[TestMethod]
-        //public void BeyondTheLimits()
-        //{
-        //    List<int> list = new List<int> { 1, 2, 3 };
-        //    //You cannot attempt to get data that doesn't exist
-        //    Assert.Throws(typeof(FillMeIn), delegate () { int x = list[3]; });
-        //}
-
         [TestMethod]
-        public void ConvertingToFixedSize()
+        [ExpectedException(typeof(FillMeIn))] //<--- Here's where you need to fill something in
+        public void AboutListsBeyondTheLimits()
         {
             List<int> list = new List<int> { 1, 2, 3 };
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            //You cannot attempt to get data that doesn't exist
+            Assert.AreEqual(4, list[3]);
         }
 
         [TestMethod]
-        public void InsertingInTheMiddle()
+        public void AboutListsConvertingToFixedSize()
+        {
+            List<int> list = new List<int> { 1, 2, 3 };
+            CollectionAssert.AreEqual(Fill_In, list.ToArray());
+        }
+
+        [TestMethod]
+        public void AboutListsInsertingInTheMiddle()
         {
             List<int> list = new List<int> { 1, 2, 3 };
             list.Insert(1, 6);
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            CollectionAssert.AreEqual(Fill_In, list.ToArray());
         }
 
         [TestMethod]
-        public void RemovingItems()
+        public void AboutListsRemovingItems()
         {
             List<int> list = new List<int> { 2, 1, 2, 3 };
             list.Remove(2);
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            CollectionAssert.AreEqual(Fill_In, list.ToArray());
         }
 
     }
