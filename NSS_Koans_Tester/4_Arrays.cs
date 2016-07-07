@@ -39,11 +39,11 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void AboutArraysLists()
+        public void AboutArraysAddingItemsToAnArrayRequiresUseOfAnotherType()
         {
             //When you want to add an item to an array, you could write a function
-            //to create a new array bigger than the last, copied the elements over, and
-            //returned the new array. Or you could do this:
+            //to create a new array bigger than the last, copy the elements over, and
+            //return the new array. Or you could do this:
             var array = new[] { 42 };
             List<int> dynamicArray = new List<int>();
             dynamicArray.Add(42);
