@@ -21,6 +21,7 @@ namespace NSS_Koans_Tester
 
         [TestMethod]
         public void AboutNullABetterWayToCheckThatAnObjectIsNull()
+            //Use this method to test if an objecct is null
         {
             object obj = null;
             Assert.IsNull(FILL_ME_IN);
@@ -28,9 +29,10 @@ namespace NSS_Koans_Tester
 
         [TestMethod]
         public void AboutNullAWayNotToCheckThatAnObjectIsNull()
+            //Don't do this
         {
             object obj = null;
-            Assert.IsTrue(obj.Equals(null));
+            Assert.IsTrue(obj == FILL_ME_IN);
         }
 
     }
