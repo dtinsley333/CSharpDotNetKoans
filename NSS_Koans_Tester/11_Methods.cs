@@ -44,10 +44,10 @@ namespace NSS_Koans_Tester
         [TestMethod]
         public void AboutMethodsExtensionMethodsWithVariableParameters()
         {
-            Assert.AreEqual(FILL_ME_IN, this.MethodWithVariableArguments("Cory", "Will", "Corey"));
+            CollectionAssert.AreEqual(Fill_In, this.MethodWithVariableArguments("Cory", "Will", "Corey"));
         }
 
-        //Extension methods can extend any class my referencing 
+        //Extension methods can extend any class by referencing 
         //the name of the class they are extending. For example, 
         //we can "extend" the string class like so:
 
@@ -68,7 +68,7 @@ namespace NSS_Koans_Tester
         [TestMethod]
         public void AboutMethodsLocalMethodsWithVariableParams()
         {
-            Assert.AreEqual(FILL_ME_IN, this.LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
+            CollectionAssert.AreEqual(Fill_In, this.LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
         }
 
         //Note how we called the method by saying "this.LocalMethodWithVariableParameters"
@@ -77,13 +77,13 @@ namespace NSS_Koans_Tester
         [TestMethod]
         public void AboutMethodsLocalMethodsWithoutExplicitReceiver()
         {
-            Assert.AreEqual(FILL_ME_IN, LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
+            CollectionAssert.AreEqual(Fill_In, LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
         }
 
         //But it is required for Extension Methods, since it needs
         //an instance variable. So this wouldn't work, giving a
         //compile-time error:
-        //Assert.Equal(FILL_ME_IN, MethodWithVariableArguments("Cory", "Will", "Corey"));
+        //CollectionAssert.Equal(FILL_ME_IN, MethodWithVariableArguments("Cory", "Will", "Corey"));
 
 
         class InnerSecret
