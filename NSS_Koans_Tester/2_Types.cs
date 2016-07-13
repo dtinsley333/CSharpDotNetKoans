@@ -8,21 +8,22 @@ namespace NSS_Koans_Tester
     public class Types : Koan
     {
         [TestMethod]
-        public void ThisIsAString()
+        public void AboutTypesThisIsAString()
         {
             string str = "This is a string!";
             Assert.AreEqual(typeof(FillMeIn), str.GetType());
+            //take note of the syntax on both sides of the assert
         }
 
         [TestMethod]
-        public void TypeString()
+        public void AboutTypesTypeString()
         {
             string aString = "Nashville Software School";
             Assert.AreEqual(FILL_ME_IN, aString);
         }
 
         [TestMethod]
-        public void ThisIsABool()
+        public void AboutTypesThisIsABool()
         {
             bool boo = true;
             bool booo = false;
@@ -31,7 +32,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void ABoolCanBeChanged()
+        public void AboutTypesABoolCanBeChanged()
         {
             bool nss1 = true;
             bool nss2 = false;
@@ -49,21 +50,22 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void CharIsAType()
+        public void AboutTypesCharIsAType()
         {
             char letter = 'a';
             Assert.AreEqual(typeof(FillMeIn), letter.GetType());
+            //What happens if you try to use double quotes??
         }
 
         [TestMethod]
-        public void CharList()
+        public void AboutTypesCharList()
         {
-            List<char> myChar = new List<char>() { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
-            Assert.AreEqual(FILL_ME_IN, myChar[3]);
+            List<char> myListOfChars = new List<char>() { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
+            Assert.AreEqual(FILL_ME_IN, myListOfChars[3]);
         }
 
         [TestMethod]
-        public void CharsHaveIntValues()
+        public void AboutTypesCharsHaveIntValues()
         {
             int myChar = 'k';
             Assert.AreEqual(FILL_ME_IN, myChar);
@@ -72,7 +74,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void CharCanConvertToString()
+        public void AboutTypesCharCanConvertToString()
         {
             char myChar = 'L';
             var myStr = myChar.ToString();
@@ -80,7 +82,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void DoublesAreATypeOfNumber()
+        public void AboutTypesDoublesAreATypeOfNumber()
         {
             double number = 1.00794;
             Assert.AreEqual(typeof(FillMeIn), number.GetType());
@@ -88,14 +90,14 @@ namespace NSS_Koans_Tester
 
 
         [TestMethod]
-        public void DecimalsHaveMorePrecisionButCanBeSlower()
+        public void AboutTypesDecimalsHaveMorePrecisionButCanBeSlower()
         {
             decimal number = 1.1700m; // for a numeric real literal to be treated as decimal, use the suffix m or M
             Assert.AreEqual(typeof(FillMeIn), number.GetType());
         }
 
         [TestMethod]
-        public void DecimalsCanHaveTrailingZeros()
+        public void AboutTypesDecimalsCanHaveTrailingZeros()
         {
             decimal number = 1.170000m; 
             number = number + 0.0001m;
@@ -104,7 +106,7 @@ namespace NSS_Koans_Tester
    
       
         [TestMethod]
-        public void IntegersAreAType()
+        public void AboutTypesIntegersAreAType()
         {
             var number = 11;
             Assert.AreEqual(typeof(FillMeIn), number.GetType());
@@ -112,7 +114,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void IntegersCanBeNegative()
+        public void AboutTypesIntegersCanBeNegative()
         {
             int number = -17;
             Assert.AreEqual(typeof(FillMeIn), number.GetType());
@@ -120,7 +122,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void CanDoMathWithIntegers()
+        public void AboutTypesCanDoMathWithIntegers()
         {
             int number1 = 2;
             int number2 = 5;

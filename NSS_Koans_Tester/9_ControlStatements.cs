@@ -99,7 +99,8 @@ namespace NSS_Koans_Tester
 
             int x = nullableInt ?? 42;
 
-            Assert.AreEqual(FILL_ME_IN, x);
+            Assert.AreEqual(Fill_In_Number, x);
+
         }
 
         [TestMethod]
@@ -114,15 +115,16 @@ namespace NSS_Koans_Tester
             if (myType is Koan)
                 isKoan = true;
 
+
             if (myType is ControlStatements)
                 isAboutControlStatements = true;
 
             if (myType is Methods)
                 isAboutMethods = true;
 
-            Assert.AreEqual(FILL_ME_IN, isKoan);
-            Assert.AreEqual(FILL_ME_IN, isAboutControlStatements);
-            Assert.AreEqual(FILL_ME_IN, isAboutMethods);
+            Assert.AreEqual(FillIn, isKoan);
+            Assert.AreEqual(FillIn, isAboutControlStatements);
+            Assert.AreEqual(FillIn, isAboutMethods);
 
         }
         [TestMethod]
@@ -161,7 +163,7 @@ namespace NSS_Koans_Tester
                 if ((i % 2) == 0) { continue; }
                 result.Add(i);
             }
-            Assert.AreEqual(FILL_ME_IN, result);
+            CollectionAssert.AreEqual(Fill_In, result);
         }
         [TestMethod]
         public void AboutControlStatementsForStatement()
@@ -171,7 +173,7 @@ namespace NSS_Koans_Tester
             {
                 list[i] = (list[i].ToUpper());
             }
-            Assert.AreEqual(FILL_ME_IN, list);
+            CollectionAssert.AreEqual(Fill_In, list);
         }
         [TestMethod]
         public void AboutControlStatementsForEachStatement()
@@ -182,8 +184,8 @@ namespace NSS_Koans_Tester
             {
                 finalList.Add(item.ToUpper());
             }
-            Assert.AreEqual(FILL_ME_IN, list);
-            Assert.AreEqual(FILL_ME_IN, finalList);
+            CollectionAssert.AreEqual(Fill_In, list);
+            CollectionAssert.AreEqual(Fill_In, finalList);
         }
         [TestMethod]
         public void AboutControlStatementsModifyingACollectionDuringForEach()

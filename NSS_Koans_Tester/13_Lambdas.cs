@@ -73,7 +73,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void ExpressionLambdasMultiple()
+        public void ExpressionLambdasMultiply()
         {
             Func<int, int, int> multiply = ( x, y) => { return x * y; };
             Assert.AreEqual(FILL_ME_IN, multiply(3,2));

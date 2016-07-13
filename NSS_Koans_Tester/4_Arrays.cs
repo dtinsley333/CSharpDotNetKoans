@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NSS_Koans;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
@@ -21,37 +20,36 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        [ExpectedException(typeof(FillMeIn))]
         public void AboutArraysArrayLiterals()
         {
-            //You don't have to specify a type if the arguments can be inferred
+            //You don't have to specify a type if the arguments can be inferred, but it's always better to be explicit when you can be
             var array = new[] { 42 };
+            
             Assert.AreEqual(typeof(int[]), array.GetType());
-            Assert.AreEqual(new int[] { 42 }, array);
+            CollectionAssert.AreEquivalent(new int[] { 42 }, array);
         }
 
         [TestMethod]
         public void AboutArraysAreArrays0or1Based()
         {
             var array = new[] { 42 };
-            Assert.AreEqual(42, array[((int)FILL_ME_IN)]);
+            Assert.AreEqual(Fill_In_Number, array[0]);
             //This is important because...
-            Assert.IsTrue(array.IsFixedSize);
-            //This is because the array is fixed at length 1. You could write a function
+            //Assert.IsTrue(array.IsFixedSize);
         }
 
         [TestMethod]
-        public void AboutArraysLists()
+        public void AboutArraysAddingItemsToAnArrayRequiresUseOfAnotherType()
         {
-            //which created a new array bigger than the last, copied the elements over, and
-            //returned the new array. Or you could do this:
+            //When you want to add an item to an array, you could write a function
+            //to create a new array bigger than the last, copy the elements over, and
+            //return the new array. Or you could do this:
             var array = new[] { 42 };
             List<int> dynamicArray = new List<int>();
             dynamicArray.Add(42);
-            Assert.AreEqual(array, dynamicArray.ToArray());
-
+            CollectionAssert.AreEquivalent(array, dynamicArray.ToArray());
             dynamicArray.Add(13);
-            Assert.AreEqual((new int[] { 42, (int)FILL_ME_IN }), dynamicArray.ToArray());
+            CollectionAssert.AreEquivalent((new int[] { 42, Fill_In_Number }), dynamicArray.ToArray());
         }
 
         [TestMethod]
@@ -70,8 +68,8 @@ namespace NSS_Koans_Tester
         {
             var array = new[] { "peanut", "butter", "and", "jelly" };
 
-            Assert.AreEqual(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Take(2).ToArray());
-            Assert.AreEqual(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Skip(1).Take(2).ToArray());
+            CollectionAssert.AreEquivalent(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Take(2).ToArray());
+            CollectionAssert.AreEquivalent(new string[] { (string)FILL_ME_IN, (string)FILL_ME_IN }, array.Skip(1).Take(2).ToArray());
         }
 
         [TestMethod]
@@ -79,11 +77,14 @@ namespace NSS_Koans_Tester
         {
             var array = new[] { 1, 2 };
             Stack stack = new Stack(array);
-            stack.Push("last");
-            Assert.AreEqual(FILL_ME_IN, stack.ToArray());
+            stack.Push(3);
+            //what numbers are in the stack?
+            CollectionAssert.AreEquivalent(Fill_In, stack.ToArray());
+            //what order are the numbers in?
+            CollectionAssert.AreEqual(Fill_In, stack.ToArray());
             var poppedValue = stack.Pop();
             Assert.AreEqual(FILL_ME_IN, poppedValue);
-            Assert.AreEqual(FILL_ME_IN, stack.ToArray());
+            CollectionAssert.AreEqual(Fill_In, stack.ToArray());
         }
 
         [TestMethod]
@@ -97,22 +98,22 @@ namespace NSS_Koans_Tester
             var list = new LinkedList<string>(array);
 
             list.AddFirst("Say");
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            CollectionAssert.AreEqual(new string[] { "Say", "Hello", "World" }, list.ToArray());
 
             list.RemoveLast();
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            CollectionAssert.AreEqual(Fill_In, list.ToArray());
 
             list.RemoveFirst();
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            CollectionAssert.AreEqual(Fill_In, list.ToArray());
 
             list.AddAfter(list.Find("Hello"), "World");
-            Assert.AreEqual(FILL_ME_IN, list.ToArray());
+            CollectionAssert.AreEqual(Fill_In, list.ToArray());
         }
 
         [TestMethod]
-        public void ArrayListSizeIsDynamic()
+        public void AboutArraysArrayListSizeIsDynamic()
         {
-            //When you worked with Array, the fact that Array is fixed size was glossed over.
+            //When you worked with Array, the fact that Array is fixed size was mentioned.
             //The size of an array cannot be changed after you allocate it. To get around that
             //you need a class from the System.Collections namespace such as ArrayList
             ArrayList list = new ArrayList();
@@ -123,15 +124,17 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void ArrayListHoldsObjects()
+        public void AboutArraysArrayListHoldsObjects()
         {
             ArrayList list = new ArrayList();
+            list.Add("one"); //We added a string
+            list.Add(2); //We can also add an int
             System.Reflection.MethodInfo method = list.GetType().GetMethod("Add");
             Assert.AreEqual(typeof(FillMeIn), method.GetParameters()[0].ParameterType);
         }
 
         [TestMethod]
-        public void MustCastWhenRetrieving()
+        public void AboutArraysMustCastWhenRetrieving()
         {
             //There are a few problems with ArrayList holding object references. The first 
             //is that you must cast the items you fetch back to the original type.
@@ -143,7 +146,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void ArrayListIsNotStronglyTyped()
+        public void AboutArraysArrayListIsNotStronglyTyped()
         {
             //Having to cast everywhere is tedious. But there is also another issue lurking
             //ArrayList can hold more than one type. 

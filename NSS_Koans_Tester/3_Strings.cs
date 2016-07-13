@@ -6,21 +6,21 @@ namespace NSS_Koans_Tester
     [TestClass]
     public class Strings : Koan
     {
-        //Note: This is one of the longest katas and, perhaps, one
+        //Note: This is one of the longest test files and, perhaps, one
         //of the most important. String behavior in .NET is not
         //always what you expect it to be, especially when it comes
         //to concatenation and newlines, and is one of the biggest
         //causes of memory leaks in .NET applications
 
         [TestMethod]
-        public void DoubleQuotedStringsAreStrings()
+        public void AboutStringsDoubleQuotedStringsAreStrings()
         {
             var str = "Hello, World";
             Assert.AreEqual(typeof(FillMeIn), str.GetType());
         }
 
         [TestMethod]
-        public void SingleQuotedStringsAreNotStrings()
+        public void AboutStringsSingleQuotedStringsAreNotStrings()
         {
             var str = 'H';
             Assert.AreEqual(typeof(FillMeIn), str.GetType());
@@ -28,14 +28,14 @@ namespace NSS_Koans_Tester
 
 
         [TestMethod]
-        public void CreateAStringWhichContainsDoubleQuotes()
+        public void AboutStringsCreateAStringWhichContainsDoubleQuotes()
         {
             var str = "Hello, \"World\"";
             Assert.AreEqual(FILL_ME_IN, str.Length);
         }
 
         [TestMethod]
-        public void AnotherWayToCreateAStringWhichContainsDoubleQuotes()
+        public void AboutStringsAnotherWayToCreateAStringWhichContainsDoubleQuotes()
         {
             //The @ symbol creates a 'verbatim string literal'. 
             //Here's one thing you can do with it:
@@ -44,7 +44,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void VerbatimStringsCanHandleFlexibleQuoting()
+        public void AboutStringsVerbatimStringsCanHandleFlexibleQuoting()
         {
             var strA = @"Verbatim Strings can handle both ' and "" characters (when escaped)";
             var strB = "Verbatim Strings can handle both ' and \" characters (when escaped)";
@@ -52,7 +52,7 @@ namespace NSS_Koans_Tester
         }
 
         [TestMethod]
-        public void VerbatimStringsCanHandleMultipleLinesToo()
+        public void AboutStringsVerbatimStringsCanHandleMultipleLinesToo()
         {
             //Tip: What you create for the literal string will have to 
             //escape the newline characters. For Windows, that would be
@@ -67,7 +67,7 @@ broken line";
         }
 
         [TestMethod]
-        public void ACrossPlatformWayToHandleLineEndings()
+        public void AboutStringsACrossPlatformWayToHandleLineEndings()
         {
             //Since line endings are different on different platforms
             //(\r\n for Windows, \n for Linux) you shouldn't just type in
@@ -79,14 +79,14 @@ broken line";
         }
 
         [TestMethod]
-        public void PlusWillConcatenateTwoStrings()
+        public void AboutStringsPlusWillConcatenateTwoStrings()
         {
             var str = "Hello, " + "World";
             Assert.AreEqual(FILL_ME_IN, str);
         }
 
         [TestMethod]
-        public void PlusConcatenationWillNotModifyOriginalStrings()
+        public void AboutStringsPlusConcatenationWillNotModifyOriginalStrings()
         {
             var strA = "Hello, ";
             var strB = "World";
@@ -96,7 +96,7 @@ broken line";
         }
 
         [TestMethod]
-        public void PlusEqualsWillModifyTheTargetString()
+        public void AboutStringsPlusEqualsWillModifyTheTargetString()
         {
             var strA = "Hello, ";
             var strB = "World";
@@ -106,7 +106,7 @@ broken line";
         }
 
         [TestMethod]
-        public void StringsAreReallyImmutable()
+        public void AboutStringsStringsAreReallyImmutable()
         {
             //So here's the thing. Concatenating strings is cool
             //and all. But if you think you are modifying the original
@@ -129,7 +129,7 @@ broken line";
         }
 
         [TestMethod]
-        public void YouDoNotNeedConcatenationToInsertVariablesInAString()
+        public void AboutStringsYouDoNotNeedConcatenationToInsertVariablesInAString()
         {
             var world = "World";
             var str = String.Format("Hello, {0}", world);
@@ -137,14 +137,14 @@ broken line";
         }
 
         [TestMethod]
-        public void AnyExpressionCanBeUsedInFormatString()
+        public void AboutStringsAnyExpressionCanBeUsedInFormatString()
         {
             var str = String.Format("The square root of 9 is {0}", Math.Sqrt(9));
             Assert.AreEqual(FILL_ME_IN, str);
         }
 
         [TestMethod]
-        public void StringsCanBePaddedToTheLeft()
+        public void AboutStringsStringsCanBePaddedToTheLeft()
         {
             //You can modify the value inserted into the result
             var str = string.Format("{0,3:}", "x");
@@ -152,49 +152,49 @@ broken line";
         }
 
         [TestMethod]
-        public void StringsCanBePaddedToTheRight()
+        public void AboutStringsStringsCanBePaddedToTheRight()
         {
             var str = string.Format("{0,-3:}", "x");
             Assert.AreEqual(FILL_ME_IN, str);
         }
 
         [TestMethod]
-        public void SeperatorsCanBeAdded()
+        public void AboutStringsSeperatorsCanBeAdded()
         {
             var str = string.Format("{0:n}", 123456);
             Assert.AreEqual(FILL_ME_IN, str);
         }
 
         [TestMethod]
-        public void CurrencyDesignatorsCanBeAdded()
+        public void AboutStringsCurrencyDesignatorsCanBeAdded()
         {
             var str = string.Format("{0:C}", 123456);
             Assert.AreEqual(FILL_ME_IN, str);
         }
 
         [TestMethod]
-        public void NumberOfDisplayedDecimalsCanBeControled()
+        public void AboutStringsNumberOfDisplayedDecimalsCanBeControled()
         {
             var str = string.Format("{0:.##}", 12.3456);
             Assert.AreEqual(FILL_ME_IN, str);
         }
 
         [TestMethod]
-        public void MinimumNumberOfDisplayedDecimalsCanBeControled()
+        public void AboutStringsMinimumNumberOfDisplayedDecimalsCanBeControled()
         {
             var str = string.Format("{0:.00}", 12.3);
             Assert.AreEqual(FILL_ME_IN, str);
         }
 
         [TestMethod]
-        public void BuiltInDateFormaters()
+        public void AboutStringsBuiltInDateFormaters()
         {
             var str = string.Format("{0:t}", DateTime.Parse("12/16/2011 2:35:02 PM"));
             Assert.AreEqual(FILL_ME_IN, str);
         }
 
         [TestMethod]
-        public void CustomeDateFormaters()
+        public void AboutStringsCustomDateFormaters()
         {
             var str = string.Format("{0:t m}", DateTime.Parse("12/16/2011 2:35:02 PM"));
             Assert.AreEqual(FILL_ME_IN, str);
@@ -202,7 +202,7 @@ broken line";
         //These are just a few of the formatters available. Dig some and you may find what you need.
 
         [TestMethod]
-        public void ABetterWayToConcatenateLotsOfStrings()
+        public void AboutStringsABetterWayToConcatenateLotsOfStrings()
         {
             //Concatenating lots of strings is a Bad Idea(tm). If you need to do that, then consider StringBuilder.
             var strBuilder = new System.Text.StringBuilder();
@@ -223,7 +223,8 @@ broken line";
 
 
         [TestMethod]
-        public void StringBuilderCanUseFormatAsWell()
+        public void AboutStringsStringBuilderCanUseFormatAsWell()
+            //look at what it is- not what you expect it to be!
         {
             var strBuilder = new System.Text.StringBuilder();
             strBuilder.AppendFormat("{0} {1} {2}", "The", "quick", "brown");
@@ -234,28 +235,28 @@ broken line";
         }
 
         [TestMethod]
-        public void LiteralStringsInterpretsEscapeCharacters()
+        public void AboutStringsLiteralStringsInterpretsEscapeCharacters()
         {
             var str = "\n";
             Assert.AreEqual(FILL_ME_IN, str.Length);
         }
 
         [TestMethod]
-        public void VerbatimStringsDoNotInterpretEscapeCharacters()
+        public void AboutStringsVerbatimStringsDoNotInterpretEscapeCharacters()
         {
             var str = @"\n";
             Assert.AreEqual(FILL_ME_IN, str.Length);
         }
 
         [TestMethod]
-        public void VerbatimStringsStillDoNotInterpretEscapeCharacters()
+        public void AboutStringsVerbatimStringsStillDoNotInterpretEscapeCharacters()
         {
             var str = @"\\\";
             Assert.AreEqual(FILL_ME_IN, str.Length);
         }
 
         [TestMethod]
-        public void YouCanGetASubstringFromAString()
+        public void AboutStringsYouCanGetASubstringFromAString()
         {
             var str = "Bacon, lettuce and tomato";
             Assert.AreEqual(FILL_ME_IN, str.Substring(19));
@@ -263,14 +264,14 @@ broken line";
         }
 
         [TestMethod]
-        public void YouCanGetASingleCharacterFromAString()
+        public void AboutStringsYouCanGetASingleCharacterFromAString()
         {
             var str = "Bacon, lettuce and tomato";
             Assert.AreEqual(FILL_ME_IN, str[0]);
         }
 
         [TestMethod]
-        public void SingleCharactersAreRepresentedByIntegers()
+        public void AboutStringsSingleCharactersAreRepresentedByIntegers()
         {
             Assert.AreEqual(97, 'a');
             Assert.AreEqual(98, 'b');
@@ -278,29 +279,29 @@ broken line";
         }
 
         [TestMethod]
-        public void StringsCanBeSplit()
+        public void AboutStringsStringsCanBeSplit()
         {
             var str = "Sausage Egg Cheese";
             string[] words = str.Split();
-            Assert.AreEqual(new[] { FILL_ME_IN }, words);
+            Assert.AreEqual(FILL_ME_IN, words[1]);
         }
 
         [TestMethod]
-        public void StringsCanBeSplitUsingCharacters()
+        public void AboutStringsStringsCanBeSplitUsingCharacters()
         {
             var str = "the:rain:in:spain";
             string[] words = str.Split(':');
-            Assert.AreEqual(new[] { FILL_ME_IN }, words);
+            Assert.AreEqual(FILL_ME_IN, words[0]);
         }
 
 
         [TestMethod]
-        public void StringsCanBeSplitUsingRegularExpressions()
+        public void AboutStringsStringsCanBeSplitUsingRegularExpressions()
         {
             var str = "the:rain:in:spain";
             var regex = new System.Text.RegularExpressions.Regex(":");
             string[] words = regex.Split(str);
-            Assert.AreEqual(new[] { FILL_ME_IN }, words);
+            Assert.AreEqual(FILL_ME_IN, words[3]);
 
             //A full treatment of regular expressions is beyond the scope
             //of this tutorial. The book "Mastering Regular Expressions"
@@ -308,7 +309,7 @@ broken line";
         }
 
         [TestMethod]
-        public void StringFunctions()
+        public void AboutStringsStringFunctions()
         {
             string test = "This Is A Test!";
             string testLower = test.ToLower();

@@ -15,13 +15,13 @@ namespace NSS_Koans_Tester
         [TestMethod]
         public void AboutAssertsAssertTruthWithMessage()
         {
-            Assert.IsTrue(FillIn);
+            Assert.IsTrue(FillIn, "change this message to anything you'd like");
         }
 
         [TestMethod]
         public void AboutAssertsAssertEquality()
         {
-            var expectedValue = 3;
+            var expectedValue = 3; //change this line
             var actualValue = 1 + 1;
             Assert.IsTrue(expectedValue == actualValue);
         }
@@ -29,13 +29,13 @@ namespace NSS_Koans_Tester
         [TestMethod]
         public void AboutAssertsABetterWayOfAssertingEquality()
         {
-            var expectedValue = 3;
+            var expectedValue = 3; //change this line
             var actualValue = 1 + 1;
             Assert.AreEqual(expectedValue, actualValue);
         }
 
         [TestMethod]
-        public void FillInValues()
+        public void AboutAssertsFillInValues()
         {
             Assert.AreEqual(FILL_ME_IN, 1 + 1);
         }

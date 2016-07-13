@@ -130,7 +130,7 @@ namespace NSS_Koans_Tester
         [TestMethod]
         public void AboutInheritanceNewingAMethodDoesNotChangeTheBaseBehavior()
         {
-            //This is vital to understand. In Koan 6, you saw that the Wag
+            //This is vital to understand. Earlier, you saw that the Wag
             //method did what we defined in our class. But what happens
             //when we do this?
             Chihuahua bennie = new ReallyYippyChihuahua("Bennie");
