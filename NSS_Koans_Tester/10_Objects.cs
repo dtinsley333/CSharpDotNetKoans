@@ -47,6 +47,7 @@ namespace NSS_Koans_Tester
     [TestClass]
     public class AboutObjects : Koan
     {
+       //In addition to demonstrating how objects work, the test in this exercise demonstrate how you can test objects  you create in your own TDD code
         [TestMethod]
         public void AboutObjectsCanCreateAPiano()
         {
