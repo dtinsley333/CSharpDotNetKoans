@@ -1,22 +1,24 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 using System.Collections;
 using System.Collections.Generic;
+using NSS_Koans;
+
 
 namespace NSS_Koans_Tester
 {
-    [TestClass]
-    public class StackAndQueue : Koan
-    {
-        
 
-        [TestMethod]
+    public class StackAndQueue
+    {
+        public object FILL_ME_IN = Koan.FILL_ME_IN;
+
+        [Fact]
         public void AboutStackandQueueBoxing()
         {
             short s = 5;
             object os = s;
-            Assert.AreEqual(s.GetType(), os.GetType());
-            Assert.AreEqual(FILL_ME_IN, os);
+            Assert.Equal(s.GetType(), os.GetType());
+            Assert.Equal(FILL_ME_IN, os);
 
             //While it is true that everything is an object and all the above passes. Not everything is quite as it seems.
             //Under the covers .Net allocates memory for all value type objects (int, double, bool,...) on the stack. This is 
@@ -27,22 +29,22 @@ namespace NSS_Koans_Tester
             //ArrayList it must be boxed. Every time you read it from the ArrayList it must be unboxed. This can be a significant cost.
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutStackandQueueStackPushPop()
         {
             var stack = new Stack<int>();
-            Assert.AreEqual(FILL_ME_IN, stack.Count);
+            Assert.Equal(FILL_ME_IN, stack.Count);
 
             stack.Push(42);
-            Assert.AreEqual(FILL_ME_IN, stack.Count);
+            Assert.Equal(FILL_ME_IN, stack.Count);
 
             int x = stack.Pop();
-            Assert.AreEqual(FILL_ME_IN, x);
+            Assert.Equal(FILL_ME_IN, x);
 
-            Assert.AreEqual(FILL_ME_IN, stack.Count);
+            Assert.Equal(FILL_ME_IN, stack.Count);
         }
 
-        [TestMethod]
+        [Fact]
         //Hint: Look back at the array tests around line 75
         public void AboutStackandQueueStackOrder()
         {
@@ -51,27 +53,27 @@ namespace NSS_Koans_Tester
             stack.Push(2);
             stack.Push(3);
 
-            CollectionAssert.AreEqual(Fill_In, stack.ToArray());
+            Assert.Equal(FILL_ME_IN, stack.ToArray());
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutStackandQueuePeekingIntoAQueue()
         {
             Queue<string> queue = new Queue<string>();
             queue.Enqueue("one");
-            Assert.AreEqual(FILL_ME_IN, queue.Peek());
+            Assert.Equal(FILL_ME_IN, queue.Peek());
             queue.Enqueue("two");
-            Assert.AreEqual(FILL_ME_IN, queue.Peek());
+            Assert.Equal(FILL_ME_IN, queue.Peek());
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutStackandQueueRemovingItemsFromTheQueue()
         {
             Queue<string> queue = new Queue<string>();
             queue.Enqueue("one");
             queue.Enqueue("two");
-            Assert.AreEqual(FILL_ME_IN, queue.Dequeue());
-            Assert.AreEqual(FILL_ME_IN, queue.Count);
+            Assert.Equal(FILL_ME_IN, queue.Dequeue());
+            Assert.Equal(FILL_ME_IN, queue.Count);
         }
 
         //A good way to remember the differnece between a stack and a queue is that a queue is like

@@ -1,6 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NSS_Koans_Tester;
+﻿
+
+using Xunit;
+using NSS_Koans;
 
 namespace NSS_Koans_Tester
 {
@@ -44,30 +45,30 @@ namespace NSS_Koans_Tester
             Cost = cost;
         }
     }
-    [TestClass]
+   
     public class AboutObjects : Koan
     {
        //In addition to demonstrating how objects work, the test in this exercise demonstrate how you can test objects  you create in your own TDD code
-        [TestMethod]
+        [Fact]
         public void AboutObjectsCanCreateAPiano()
         {
             Piano steinway = new Piano();
-            Assert.IsNotNull(null); //Change null to make this test pass
+            Assert.Equal(steinway,null); //Change null to make this test pass
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutObjectsCanCreateAPianoWithProperties()
         {
             Piano knabe = new Piano() { NumberOfKeys = 88, Brand = "Knabe", Acoustic = true, Material = "Mahogany", Cost = 321.76 };
-            Assert.AreEqual(FILL_ME_IN, knabe.NumberOfKeys);
-            Assert.AreEqual(FILL_ME_IN, knabe.Brand);
-            Assert.AreEqual(FILL_ME_IN, knabe.Acoustic);
-            Assert.AreEqual(FILL_ME_IN, knabe.Material);
-            Assert.AreEqual(FILL_ME_IN, knabe.Cost);
+            Assert.Equal(FILL_ME_IN, knabe.NumberOfKeys);
+            Assert.Equal(FILL_ME_IN, knabe.Brand);
+            Assert.Equal(FILL_ME_IN, knabe.Acoustic);
+            Assert.Equal(FILL_ME_IN, knabe.Material);
+            Assert.Equal(FILL_ME_IN, knabe.Cost);
         }
 
 
-        [TestMethod]
+        [Fact]
         public void AboutObjectsCanDefinePropertiesAfterInitialized()
         {
             Piano steinway = new Piano();
@@ -77,23 +78,23 @@ namespace NSS_Koans_Tester
             steinway.Material = "Walnut";
             steinway.Cost = 1299.99;
 
-            Assert.AreEqual(FILL_ME_IN, steinway.NumberOfKeys);
-            Assert.AreEqual(FILL_ME_IN, steinway.Brand);
-            Assert.AreEqual(FILL_ME_IN, steinway.Acoustic);
-            Assert.AreEqual(FILL_ME_IN, steinway.Material);
-            Assert.AreEqual(FILL_ME_IN, steinway.Cost);
+            Assert.Equal(FILL_ME_IN, steinway.NumberOfKeys);
+            Assert.Equal(FILL_ME_IN, steinway.Brand);
+            Assert.Equal(FILL_ME_IN, steinway.Acoustic);
+            Assert.Equal(FILL_ME_IN, steinway.Material);
+            Assert.Equal(FILL_ME_IN, steinway.Cost);
         }
 
-        [TestMethod]
+        [Fact]
         public void ObjectsCanBeCreatedWithDefaultProperites()
         {
             DrumSet drums = new DrumSet();
-            Assert.AreEqual(FILL_ME_IN, drums.NumberOfDrums);
-            Assert.AreEqual(FILL_ME_IN, drums.Color);
-            Assert.AreEqual(FILL_ME_IN, drums.HasSticks);
+            Assert.Equal(FILL_ME_IN, drums.NumberOfDrums);
+            Assert.Equal(FILL_ME_IN, drums.Color);
+            Assert.Equal(FILL_ME_IN, drums.HasSticks);
         }
 
-        [TestMethod]
+        [Fact]
         public void PropertiesOfObjectsCanGetOverrided()
         {
             DrumSet drums = new DrumSet();
@@ -102,19 +103,19 @@ namespace NSS_Koans_Tester
             drums.Color = "FILL_ME_IN";
             drums.HasSticks = false;
 
-            Assert.AreEqual(FILL_ME_IN, drums.NumberOfDrums);
-            Assert.AreEqual("blue", drums.Color);
-            Assert.AreEqual(FILL_ME_IN, drums.HasSticks);
+            Assert.Equal(FILL_ME_IN, drums.NumberOfDrums);
+            Assert.Equal("blue", drums.Color);
+            Assert.Equal(FILL_ME_IN, drums.HasSticks);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutObjectCanInitializeObjectsWithPropertiesDefined()
         {
             Guitar rockStar = new Guitar(40, "Fender", false, 59.99);
-            Assert.AreEqual(FILL_ME_IN, rockStar.Length);
-            Assert.AreEqual(FILL_ME_IN, rockStar.Brand);
-            Assert.AreEqual(FILL_ME_IN, rockStar.Acoustic);
-            Assert.AreEqual(FILL_ME_IN, rockStar.Cost);
+            Assert.Equal(FILL_ME_IN, rockStar.Length);
+            Assert.Equal(FILL_ME_IN, rockStar.Brand);
+            Assert.Equal(FILL_ME_IN, rockStar.Acoustic);
+            Assert.Equal(FILL_ME_IN, rockStar.Cost);
         }
     }
 }

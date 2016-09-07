@@ -1,64 +1,57 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 using System.Collections.Generic;
+using NSS_Koans;
 
 namespace NSS_Koans_Tester
 {
-    [TestClass]
-    public class ControlStatements : Koan
+
+    public class ControlStatements
     {
-        [TestMethod]
+        public object FILL_ME_IN = Koan.FILL_ME_IN;
+        [Fact]
         public void AboutControlStatementsIfThenElseStatementsWithBrackets()
         {
-            bool b;
-            if (true)
+            bool IsOfVotingAge;
+            var age = 18;
+            if (age>=18)
             {
-                b = true;
+                IsOfVotingAge = true;
             }
             else
             {
-                b = false;
+                IsOfVotingAge=false;
             }
 
-            Assert.AreEqual(FILL_ME_IN, b);
+            Assert.Equal(FILL_ME_IN, IsOfVotingAge);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsIfThenElseStatementsWithoutBrackets()
         {
-            bool b;
-            if (true)
-                b = true;
+            bool IsOfVotingAge;
+            var age = 18;
+            if (age >= 18)
+                IsOfVotingAge = true;
             else
-                b = false;
+                IsOfVotingAge = false;
 
-            Assert.AreEqual(FILL_ME_IN, b);
+            Assert.Equal(FILL_ME_IN, IsOfVotingAge);
 
         }
 
-        [TestMethod]
-        public void AboutControlStatementsIfThenStatementsWithBrackets()
-        {
-            bool b = false;
-            if (true)
-            {
-                b = true;
-            }
 
-            Assert.AreEqual(FILL_ME_IN, b);
-        }
-
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsIfThenStatementsWithoutBrackets()
         {
             bool b = false;
             if (true)
                 b = true;
 
-            Assert.AreEqual(FILL_ME_IN, b);
+            Assert.Equal(FILL_ME_IN, b);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsWhyItsWiseToAlwaysUseBrackets()
         {
             bool b1 = false;
@@ -70,64 +63,62 @@ namespace NSS_Koans_Tester
                 b1 = true;
             b2 = true;
 
-            Assert.AreEqual(FILL_ME_IN, b1);
-            Assert.AreEqual(FILL_ME_IN, b2);
+            Assert.Equal(FILL_ME_IN, b1);
+            Assert.Equal(FILL_ME_IN, b2);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsTernaryOperators()
         {
-            Assert.AreEqual(FILL_ME_IN, (true ? 1 : 0));
-            Assert.AreEqual(FILL_ME_IN, (false ? 1 : 0));
+            Assert.Equal(FILL_ME_IN, (true ? 1 : 0));
+            Assert.Equal(FILL_ME_IN, (false ? 1 : 0));
         }
 
-        [TestMethod]
-        public void AboutControlStatementsNullableTypes()
-        {
-            int i = 0;
-            //i = null; //You can't do this
+      
 
-            int? nullableInt = null; //but you can do this
-            Assert.IsNotNull(FILL_ME_IN);
-            Assert.IsNull(FILL_ME_IN);
-        }
-
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsAssignIfNullOperator()
         {
             int? nullableInt = null;
 
             int x = nullableInt ?? 42;
 
-            Assert.AreEqual(Fill_In_Number, x);
+            Assert.Equal(FILL_ME_IN, x);
 
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsIsOperators()
         {
-            bool isKoan = false;
-            bool isAboutControlStatements = false;
-            bool isAboutMethods = false;
+            //The default value of booleans is false
+            bool isKoan=false;
+            bool isAboutControlStatements=false;
+            bool isAboutMethods=false;
 
-            var myType = this;
+            var myType = new Koan();
 
             if (myType is Koan)
+            {
                 isKoan = true;
+            }
 
 
             if (myType is ControlStatements)
+            {
                 isAboutControlStatements = true;
+            }
 
             if (myType is Methods)
+            {
                 isAboutMethods = true;
+            }
 
-            Assert.AreEqual(FillIn, isKoan);
-            Assert.AreEqual(FillIn, isAboutControlStatements);
-            Assert.AreEqual(FillIn, isAboutMethods);
+            Assert.Equal(FILL_ME_IN, isKoan);
+            Assert.Equal(FILL_ME_IN, isAboutControlStatements);
+            Assert.Equal(FILL_ME_IN, isAboutMethods);
 
         }
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsWhileStatement()
         {
             int i = 1;
@@ -137,9 +128,9 @@ namespace NSS_Koans_Tester
                 result = result + i;
                 i += 1;
             }
-            Assert.AreEqual(FILL_ME_IN, result);
+            Assert.Equal(FILL_ME_IN, result);
         }
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsBreakStatement()
         {
             int i = 1;
@@ -150,9 +141,9 @@ namespace NSS_Koans_Tester
                 result = result + i;
                 i += 1;
             }
-            Assert.AreEqual(FILL_ME_IN, result);
+            Assert.Equal(FILL_ME_IN, result);
         }
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsContinueStatement()
         {
             int i = 0;
@@ -163,9 +154,9 @@ namespace NSS_Koans_Tester
                 if ((i % 2) == 0) { continue; }
                 result.Add(i);
             }
-            CollectionAssert.AreEqual(Fill_In, result);
+            Assert.Equal(FILL_ME_IN, result);
         }
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsForStatement()
         {
             var list = new List<string> { "fish", "and", "chips" };
@@ -173,9 +164,9 @@ namespace NSS_Koans_Tester
             {
                 list[i] = (list[i].ToUpper());
             }
-            CollectionAssert.AreEqual(Fill_In, list);
+            Assert.Equal(FILL_ME_IN, list);
         }
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsForEachStatement()
         {
             var list = new List<string> { "fish", "and", "chips" };
@@ -184,10 +175,10 @@ namespace NSS_Koans_Tester
             {
                 finalList.Add(item.ToUpper());
             }
-            CollectionAssert.AreEqual(Fill_In, list);
-            CollectionAssert.AreEqual(Fill_In, finalList);
+            Assert.Equal(FILL_ME_IN, list);
+            Assert.Equal(FILL_ME_IN, finalList);
         }
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsModifyingACollectionDuringForEach()
         {
             var list = new List<string> { "fish", "and", "chips" };
@@ -200,11 +191,11 @@ namespace NSS_Koans_Tester
             }
             catch (Exception ex)
             {
-                Assert.AreEqual(typeof(FillMeIn), ex.GetType());
+                Assert.Equal(typeof(FillMeIn), ex.GetType());
             }
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutControlStatementsCatchingModificationExceptions()
         {
             string whoCaughtTheException = "No one";
@@ -229,7 +220,7 @@ namespace NSS_Koans_Tester
                 whoCaughtTheException = "When we tried to move to the next item in the list";
             }
 
-            Assert.AreEqual(FILL_ME_IN, whoCaughtTheException);
+            Assert.Equal(FILL_ME_IN, whoCaughtTheException);
         }
     }
 }

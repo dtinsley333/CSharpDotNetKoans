@@ -1,35 +1,36 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 using System.Collections.Generic;
+using NSS_Koans;
 
 namespace NSS_Koans_Tester
 {
-    [TestClass]
-    public class Dictionaries : Koan
-    {
 
-        [TestMethod]
+    public class Dictionaries
+    {
+        public object FILL_ME_IN = Koan.FILL_ME_IN;
+        [Fact]
         public void AboutDictionariesAddingToADictionary()
         {
             //Dictionary<TKey, TValue> is .Net's key value store. The key and the value do not need to be the same types.
             Dictionary<int, string> dictionary = new Dictionary<int, string>();
-            Assert.AreEqual(FILL_ME_IN, dictionary.Count);
+            Assert.Equal(FILL_ME_IN, dictionary.Count);
             dictionary.Add(1,"one");
-            Assert.AreEqual(FILL_ME_IN, dictionary.Count);
+            Assert.Equal(FILL_ME_IN, dictionary.Count);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutDictionariesAccessingData()
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
             dictionary.Add("one", "uno");
             dictionary.Add("two", "dos");
             //The most common way to locate data is with the subscript notation.
-            Assert.AreEqual(FILL_ME_IN, dictionary["one"]);
-            Assert.AreEqual(FILL_ME_IN, dictionary["two"]);
+            Assert.Equal(FILL_ME_IN, dictionary["one"]);
+            Assert.Equal(FILL_ME_IN, dictionary["two"]);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutDictionariesCheckIfADictionaryContainsAKey()
         {
             Dictionary<int, string> dictionary = new Dictionary<int, string>();
@@ -51,10 +52,10 @@ namespace NSS_Koans_Tester
                  value = "value not found";
             }
 
-            Assert.AreEqual(FILL_ME_IN, value);
+            Assert.Equal(FILL_ME_IN, value);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutDictionariesCheckIfADictionaryContainsAValue()
         {
             Dictionary<int, string> dictionary = new Dictionary<int, string>();
@@ -76,11 +77,11 @@ namespace NSS_Koans_Tester
                 value = "value not found";
             }
 
-            Assert.AreEqual(FILL_ME_IN, value);
+            Assert.Equal(FILL_ME_IN, value);
         }
 
 
-        [TestMethod]
+        [Fact]
         public void AboutDictionariesCatchingMissingData()
         {
             //To deal with the throw when data is not there, you could wrap the data access in a try/catch block...
@@ -95,10 +96,10 @@ namespace NSS_Koans_Tester
             {
                 result = "dos";
             }
-            Assert.AreEqual(FILL_ME_IN, result);
+            Assert.Equal(FILL_ME_IN, result);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutDictionariesPreCheckForMissingData()
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -113,10 +114,10 @@ namespace NSS_Koans_Tester
             {
                 result = "dos";
             }
-            Assert.AreEqual(FILL_ME_IN, result);
+            Assert.Equal(FILL_ME_IN, result);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutDictionariesTryGetValueForMissingData()
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -127,30 +128,29 @@ namespace NSS_Koans_Tester
             {
                 result = "dos";
             }
-            Assert.AreEqual(FILL_ME_IN, result);
+            Assert.Equal(FILL_ME_IN, result);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutDictionariesInitializingADictionary()
         {
             //Although it is not common, you can initialize a dictionary...
             var dictionary = new Dictionary<string, string> { { "one", "uno" }, { "two", "dos" } };
-            Assert.AreEqual(FILL_ME_IN, dictionary["one"]);
-            Assert.AreEqual(FILL_ME_IN, dictionary["two"]);
+            Assert.Equal(FILL_ME_IN, dictionary["one"]);
+            Assert.Equal(FILL_ME_IN, dictionary["two"]);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(FillMeIn))] //<--- Here's where you need to fill something in
+        [Fact]
         public void AboutDictionariesModifyingData()
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
             dictionary.Add("one", "uno");
             dictionary.Add("two", "dos");
             dictionary.Add("one", "ein");
-            Assert.AreEqual("un", dictionary["one"]);
+            Assert.Equal("un", dictionary["one"]);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutDictionariesCombiningDictionaries()
         {
             Dictionary<string, int> one = new Dictionary<string, int>();
@@ -168,10 +168,10 @@ namespace NSS_Koans_Tester
                 one[item.Key] = item.Value;
             }
 
-            Assert.AreEqual(FILL_ME_IN, one.ContainsKey("jim"));
-            Assert.AreEqual(FILL_ME_IN, one.ContainsKey("jenny"));
-            Assert.AreEqual(FILL_ME_IN, one.ContainsKey("amy"));
-            Assert.AreEqual(Fill_In_Number, one["jim"]);
+            Assert.Equal(FILL_ME_IN, one.ContainsKey("jim"));
+            Assert.Equal(FILL_ME_IN, one.ContainsKey("jenny"));
+            Assert.Equal(FILL_ME_IN, one.ContainsKey("amy"));
+            Assert.Equal(FILL_ME_IN, one["jim"]);
         }
     }
 }

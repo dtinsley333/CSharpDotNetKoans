@@ -1,7 +1,8 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 using System.Collections.Generic;
 using System.Linq;
+using NSS_Koans;
 
 namespace NSS_Koans_Tester
 {
@@ -11,19 +12,20 @@ namespace NSS_Koans_Tester
         public string City { get; set; }
     }
 
-    [TestClass]
-    public class Lambdas : Koan
+
+    public class Lambdas
     {
-        [TestMethod]
+        public object FILL_ME_IN = Koan.FILL_ME_IN;
+        [Fact]
         public void LambdaExpression()
         {
             List<int> firstNumbers = new List<int>() { 1, 2, 3, 4, 5, 6 };
             List<int> secondNumbers = firstNumbers.Where(n => n % 2 == 1).ToList();
 
-            CollectionAssert.AreEqual(Fill_In, secondNumbers);
+            Assert.Equal(FILL_ME_IN, secondNumbers);
         }
 
-        [TestMethod]
+        [Fact]
         public void LambdasToIterateAList()
         {
             List<int> numbers = new List<int>() { 1, 55, 62, 42, 9, 18 };
@@ -39,11 +41,11 @@ namespace NSS_Koans_Tester
                     ))
                 filteredNumbers.Add(i);
 
-            CollectionAssert.AreEqual(Fill_In, filteredNumbers);
+            Assert.Equal(FILL_ME_IN, filteredNumbers);
 
         }
 
-        [TestMethod]
+        [Fact]
         public void LambdaWithAForEach()
         {
             List<int> source = new List<int>() { 3, 8, 4, 6, 1, 7, 9, 2, 4, 8 };
@@ -61,37 +63,37 @@ namespace NSS_Koans_Tester
                     ))
                 final.Add(i);
             
-            CollectionAssert.AreEqual(Fill_In, final);
+            Assert.Equal(FILL_ME_IN, final);
 
         }
-        [TestMethod]
+        [Fact]
         public void ExpressionLambdasAdd()
         {
             Func<int, int> plusOne = x => { return x + 1; };
-            Assert.AreEqual(FILL_ME_IN, plusOne(1));
+            Assert.Equal(FILL_ME_IN, plusOne(1));
 
         }
 
-        [TestMethod]
+        [Fact]
         public void ExpressionLambdasMultiply()
         {
             Func<int, int, int> multiply = ( x, y) => { return x * y; };
-            Assert.AreEqual(FILL_ME_IN, multiply(3,2));
+            Assert.Equal(FILL_ME_IN, multiply(3,2));
         }
 
-        [TestMethod]
+        [Fact]
         public void LambdasWithQueryOperators()
         {
             Func<int, bool> lambdaFunction = x => x == 11;
 
-            bool trueResult = lambdaFunction(Fill_In_Number);
-            bool falseResult = lambdaFunction(Fill_In_Number);
+            bool trueResult = lambdaFunction(-1);//replace with number that works
+            bool falseResult = lambdaFunction(-1);//replace with a number that works
 
-            Assert.IsTrue(trueResult);
-            Assert.IsFalse(falseResult);
+            Assert.True(trueResult);
+            Assert.False(falseResult);
         }
 
-        [TestMethod]
+        [Fact]
         public void CanQueryDataWithLambdas()
         {
             List<Person> People = new List<Person>() {
@@ -103,7 +105,7 @@ namespace NSS_Koans_Tester
 
             List<Person> query = People.Where(p => p.City == "Nashville").ToList();
 
-            Assert.AreEqual(FILL_ME_IN, query[0].FirstName);
+            Assert.Equal(FILL_ME_IN, query[0].FirstName);
         }
 
     }

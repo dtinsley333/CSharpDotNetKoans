@@ -1,60 +1,78 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
+using NSS_Koans;
+using System.Globalization;
 
 namespace NSS_Koans_Tester
 {
     public static class ExtensionMethods
     {
-        public static string HelloWorld(this Koan koan)
+
+        public static string HelloWorld(this String str)
         {
-            return "Hello!";
+            str = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+            return str;
         }
 
-        public static string SayHello(this Koan koan, string name)
+        public static string SayHello(this string name)
         {
             return String.Format("Hello, {0}!", name);
         }
 
-        public static string[] MethodWithVariableArguments(this Koan koan, params string[] names)
+        public static string[] MethodWithVariableArguments(this string[] names)
         {
+            foreach(var customer in names)
+            {
+                System.Console.WriteLine($"Customer = {names}");
+            }
+            
             return names;
         }
 
-        public static string SayHi(this String str)
+        public static string SayHi(this string str)
         {
             return "Hi, " + str;
         }
     }
 
-    [TestClass]
-    public class Methods : Koan
+    public class Methods
     {
-        [TestMethod]
+        public object FILL_ME_IN = Koan.FILL_ME_IN;
+        public Koan koan=new Koan();
+        [Fact]
         public void AboutMethodsExtensionMethodsShowUpInTheCurrentClass()
         {
-            Assert.AreEqual(FILL_ME_IN, this.HelloWorld());
+            string hello = "hello world";
+            hello = hello.HelloWorld();
+            Assert.Equal(FILL_ME_IN, hello);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutMethodsExtensionMethodsWithParameters()
         {
-            Assert.AreEqual(FILL_ME_IN, this.SayHello("Cory"));
+            string name = "Cory";
+            name = name.SayHello();
+
+            Assert.Equal(FILL_ME_IN, name);
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutMethodsExtensionMethodsWithVariableParameters()
         {
-            CollectionAssert.AreEqual(Fill_In, this.MethodWithVariableArguments("Cory", "Will", "Corey"));
+            string[] names= { "Cory", "Will", "Corey" };
+            names = names.MethodWithVariableArguments();
+
+            Assert.Equal(FILL_ME_IN, names);
         }
 
         //Extension methods can extend any class by referencing 
         //the name of the class they are extending. For example, 
         //we can "extend" the string class like so:
 
-        [TestMethod]
+        [Fact]
         public void AboutMethodsExtendingCoreClasses()
         {
-            Assert.AreEqual(FILL_ME_IN, "Cory".SayHi());
+            Assert.Equal(FILL_ME_IN, "Cory".SayHi());
         }
 
         //Of course, any of the parameter things you can do with 
@@ -65,19 +83,19 @@ namespace NSS_Koans_Tester
             return names;
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutMethodsLocalMethodsWithVariableParams()
         {
-            CollectionAssert.AreEqual(Fill_In, this.LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
+            Assert.Equal(FILL_ME_IN, this.LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
         }
 
         //Note how we called the method by saying "this.LocalMethodWithVariableParameters"
         //That isn't necessary for local methods
 
-        [TestMethod]
+        [Fact]
         public void AboutMethodsLocalMethodsWithoutExplicitReceiver()
         {
-            CollectionAssert.AreEqual(Fill_In, LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
+            Assert.Equal(FILL_ME_IN, LocalMethodWithVariableParameters("Cory", "Will", "Corey"));
         }
 
         //But it is required for Extension Methods, since it needs
@@ -102,10 +120,10 @@ namespace NSS_Koans_Tester
         //Static methods don't require an instance of the object
         //in order to be called. 
 
-        [TestMethod]
+        [Fact]
         public void AboutMethodsCallingStaticMethodsWithoutAnInstance()
         {
-            Assert.AreEqual(FILL_ME_IN, InnerSecret.Key());
+            Assert.Equal(FILL_ME_IN, InnerSecret.Key());
         }
 
         //In fact, you can't call it on an instance variable
@@ -113,11 +131,11 @@ namespace NSS_Koans_Tester
         //InnerSecret secret = new InnerSecret();
         //Assert.Equal(FILL_ME_IN, secret.Key());
 
-        [TestMethod]
+        [Fact]
         public void AboutMethodsCallingPublicMethodsOnAnInstance()
         {
             InnerSecret secret = new InnerSecret();
-            Assert.AreEqual(FILL_ME_IN, secret.Secret());
+            Assert.Equal(FILL_ME_IN, secret.Secret());
         }
 
         //Protected methods can only be called by a subclass
@@ -125,29 +143,29 @@ namespace NSS_Koans_Tester
         //InformationLeak of the StateSecret class which returns
         //the value from the protected method SuperSecret
 
-        [TestMethod]
+        [Fact]
         public void AboutMethodsCallingProtectedMethodsOnAnInstance()
         {
             StateSecret secret = new StateSecret();
-            Assert.AreEqual(FILL_ME_IN, secret.InformationLeak());
+            Assert.Equal(FILL_ME_IN, secret.InformationLeak());
         }
 
-        //But, we can't call the private methods of InnerSecret
-        //either through an instance, or through a subclass. It
-        //just isn't available.
+        /* But, we can't call the private methods of InnerSecret
+        either through an instance, or through a subclass. It
+        just isn't available.
 
-        //Ok, well, that isn't entirely true. Reflection can get
-        //you just about anything, and though it's way out of scope
-        //for this...
+        Ok, well, that isn't entirely true. Reflection can get
+        you just about anything, and though it's way out of scope
+        for this...*/
 
-        [TestMethod]
+        [Fact]
         public void AboutMethodsSubvertPrivateMethods()
         {
             InnerSecret secret = new InnerSecret();
             string superSecretMessage = secret.GetType()
                 .GetMethod("SooperSeekrit", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                 .Invoke(secret, null) as string;
-            Assert.AreEqual(FILL_ME_IN, superSecretMessage);
+            Assert.Equal(FILL_ME_IN, superSecretMessage);
         }
 
         //Up till now we've had explicit return types. It's also
@@ -160,12 +178,12 @@ namespace NSS_Koans_Tester
             return p1;
         }
 
-        [TestMethod]
+        [Fact]
         public void AboutMethodsCallingGenericMethods()
         {
-            Assert.AreEqual(typeof(FillMeIn), GiveMeBack<int>(1).GetType());
+            Assert.Equal(typeof(FillMeIn), GiveMeBack<int>(1).GetType());
 
-            Assert.AreEqual(FILL_ME_IN, GiveMeBack<string>("Hi!"));
+            Assert.Equal(FILL_ME_IN, GiveMeBack<string>("Hi!"));
         }
 
 
