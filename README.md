@@ -12,9 +12,9 @@ Visual Studio - these Koans were made in Visual Studio 2015 Community Edition wh
 2. Open the project in Visual Studio
 3. Click on Build and select Build
 4. When the project builds successfully click on Test -> Run -> All Tests
-5. 155 failed tests should appear in the Test Explorere window on the left
+5. 150+ failed tests should appear in the Test Explorere window on the left
 6. Look in the NSS_Koans_Tester project in Solution Explorer (View -> Solution Explorer if it is not already open) for a numbered list of test files.
-7. Start with 1_Asserts.cs and modify the test to make it pass.  Note: you can run a single test or group of tests by right clicking on them and seleceting Run Selected Tests.
+7. Start with 1_Asserts.cs and modify the test to make it pass.  Note: you can run a single test or group of tests by right clicking on them and seleceting Run Selected Tests. Most test have comments supplied to provide hints. Some test will not have hints and you will have to set debug points and research to fix the failing test. 
 8. The test files are numbered in a recommended order, but you can do them in any order.  
 
 Have fun learning C#!
